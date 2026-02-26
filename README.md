@@ -49,11 +49,13 @@ rheology-ai-agent/
 ## Key Components
 
 ### Surrogate Model (`src/surrogate/`)
+
 - **model.py**: Defines the neural network architecture for predicting rheological properties
 - **train.py**: Training script for the surrogate model using historical data
 - **inference.py**: Real-time prediction interface for the trained model
 
 ### Control Agent (`src/agent/`)
+
 - **graph.py**: Defines the LangGraph state machine with nodes for prediction, checking, decision-making, and control application
 - **nodes.py**: Implements the logic for each agent node:
   - `predict_node`: Uses the surrogate model to predict viscosity
@@ -62,17 +64,20 @@ rheology-ai-agent/
   - `apply_node`: Applies control adjustments and manages iteration limits
 
 ### Control Logic (`src/control/`)
+
 - **stability.py**: Simple stability checking to determine if the system is within acceptable bounds
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd rheology-ai-agent
 ```
 
 2. Install dependencies:
+
 ```bash
 uv install
 ```
@@ -80,6 +85,7 @@ uv install
 ## Usage
 
 ### Training the Surrogate Model
+
 ```bash
 python src/surrogate/train.py
 ```
@@ -87,11 +93,13 @@ python src/surrogate/train.py
 This will train the neural network model using the data in `data/dataset.csv` and save the trained model to `models/surrogate_model.pt`.
 
 ### Running the Autonomous Agent
+
 ```bash
 python main.py
 ```
 
 The main script will:
+
 1. Display the feasible viscosity range at 75°C for various flow rates
 2. Run the closed-loop control agent starting with initial conditions
 3. Iteratively adjust the flow rate until the target viscosity is achieved or the maximum iterations are reached
@@ -99,10 +107,11 @@ The main script will:
 ### Configuration
 
 Edit `config/config.yaml` to adjust control parameters:
+
 ```yaml
-target_viscosity: 2.3          # Target viscosity value
-tolerance: 0.1                 # Acceptable deviation from target
-max_iterations: 20             # Maximum control iterations
+target_viscosity: 2.3 # Target viscosity value
+tolerance: 0.1 # Acceptable deviation from target
+max_iterations: 20 # Maximum control iterations
 ```
 
 ## Example Output
@@ -131,18 +140,23 @@ Final State:
 ## Technical Details
 
 ### Control Algorithm
+
 The agent implements a proportional control strategy specifically designed for shear-thinning fluids:
+
 - Uses the sign of the derivative relationship between viscosity and flow rate
 - Applies proportional gain (Kp = 0.3) for stable convergence
 - Includes safety bounds to prevent unrealistic flow rate values
 
 ### State Machine Architecture
+
 The LangGraph implementation provides:
+
 - Clear separation of concerns between prediction, evaluation, decision-making, and control
 - Iterative control loops with convergence checking
 - Built-in iteration limits to prevent infinite loops
 
 ### Machine Learning Integration
+
 - Neural network surrogate model replaces complex physical simulations
 - Real-time inference enables fast control decisions
 - Data preprocessing ensures consistent input scaling
@@ -163,8 +177,8 @@ The LangGraph implementation provides:
 
 ## License
 
-[Specify your license here]
+MIT
 
 ## Contact
 
-[Your contact information here]
+jeffinpappachan110@gmail.com
