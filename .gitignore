@@ -1,0 +1,52 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Jupyter notebooks output
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Data files (if they contain sensitive or large data)
+# *.csv
+# *.json
+# *.pkl
+# *.pt
+
+# Model files (if they are large or contain sensitive data)
+# models/
+
+# Configuration files with secrets
+.env
+.env.local
+.env.*.local
+
+
+
